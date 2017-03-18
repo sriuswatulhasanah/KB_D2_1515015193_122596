@@ -11,29 +11,29 @@ nondeterm adik(STRING,STRING)
 nondeterm usia(STRING,INTEGER)
 
 CLAUSES
-anak("Jhon","James").
-anak("James","Peter").
-anak("Sue","Ann").
-istri("Mary","Peter").
-istri("Ann","James").
-pria("Jhon").
-pria("James").
-pria("Peter").
-wanita("Mary").
-wanita("Sue").
-wanita("Ann").
-usia("Jhon",10).
-usia("Sue",13).
+anak("Jhon","James"). % Jhon adalah anak James
+anak("James","Peter"). % James adalah anak Peter
+anak("Sue","Ann"). % Sue adalah anak Ann
+istri("Mary","Peter"). % Mary adalah istri Peter
+istri("Ann","James"). % Ann adalah istri James
+pria("Jhon"). % Jhon seorang Pria
+pria("James"). % James seorang pria
+pria("Peter"). % peter seorang pria
+wanita("Mary"). % mary seorang wanita
+wanita("Sue"). % sue seorang wanita
+wanita("Ann"). % Ann seorang wanita
+usia("Jhon",10). % Jhon berusia 10 
+usia("Sue",13). % sue berusia 13
 
-ayah(A,B):-anak(B,A).
-kakek(A,B):-ayah(A,C), ayah(C,B).
-ibu(A,B):-istri(B,C), anak(A,C).
-cucu(A,B):-anak(A,C), anak(C,B).
-cucu(A,B):-anak(A,C), istri(C,D), anak(D,B).
-adik(A,B):-usia(A,C), usia(B,D), C<D.
+ayah(A,B):-anak(B,A). % A ayah B jika B anak A.
+kakek(A,B):-ayah(A,C), ayah(C,B). % A kakek B jika A ayah C dan C ayah B.
+ibu(A,B):-istri(B,C), anak(A,C). % A ibu B jika B istri C dan A anak C.
+cucu(A,B):-anak(A,C), anak(C,B). % A cucu B jika A anak C dan C anak B.
+cucu(A,B):-anak(A,C), istri(C,D), anak(D,B). % A cucu B jika A anak C dan C istri D dan D anak B.
+adik(A,B):-usia(A,C), usia(B,D), C<D.% A adik B jika A usia C dan B usia D dan C lebih Kecil dari D.
 
 GOAL
-cucu(X,Y).
-%ibu(X,Y).
-%adik(X,Y).
-%kakek(X,Y).
+%cucu(X,Y). % X cucu Y.
+ibu(X,Y). % X ibu Y.
+%adik(X,Y). % X adik Y.
+%kakek(X,Y). % X kakek Y.
