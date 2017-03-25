@@ -1,0 +1,38 @@
+Nama : Sri uswatul hasanah
+Nim : 1515015193
+
+Penjelasan program posttest 4.
+
+    Setelah program di jalankan, di awal program akan melakukan proses dari section clauses, 
+ melacak data-data orang yang telah dideklarasikan pada section clauses, 
+ yang dimana terdapat data yang terlibat dalam kasus pembunuhan tersebut.
+
+    Dari fakta yang ada, argument X merupakan argument Pembunuh. Dari argument
+ pembunuh terdapat beberapa pernyataan persyaratan dan program akan melakukan
+ unifikasi terhadap pernyataan tersebut.maka program akan mencari fakta orang 
+ yang mengetahui pembunuh dalam kasus tersebut. Pernyataan pertama yang di dapat
+ adalah budi.
+
+    Selanjutnya program mencari pernyataan terbunuh, maka yang ditemukan faktanya adalah siti.
+ Dan kemudian program melakukan pencarian pada pernyataan dicurigai(X), 
+ dari pernyataan tersebut dilakukan proses pencarian menggunakan unifikasi 
+ terhadap pernyataan syarat-syarat tersebut. Kemudian program akan mencari senjata
+ yang di pakai untuk membunuh, dengan melakukan proses di variable terbunuh_dengan.
+ Maka fakta yang diperoleh ialah terbunuh_dengan(siti, pentungan).
+
+    Setelah itu program melakukan proses pencarian fakta benda yang cara kerjanya seperti senjata,
+ maka diperoleh cara_kerja_mirip(Benda, Senjata). Kemudian prolog memanggil pernyataan tersebut untuk
+ mengetahui benda yang cara kerjanya mirip pentungan yang telah di eksekusi pada langkah sebelumnya.
+ maka fakta yang didapat ialah cara_kerja_mirip(kaki_palsu, pentungan). Dan setelah itu program akan 
+ melakukan prose fakta dari variable kemungkinan_milik(X, Benda), milik (X, Benda). Dari pernyataan 
+ itu maka program mencari fakta bahwa siapa pemilik kaki palsu,  dan hasilnya milik(budi, kaki_palsu).
+ Jadi kaki_palsu itu miliknya Budi.
+
+    Kemudian program menjalankan proses pernyataan dari pembunuh karena masih terdapat pernyataan yang belum dip roses,
+ yaitu pada variable ternodai(Pembunuh, Zat). Maka dijalankanlah proses ke dalam pernyataan tersebut, 
+ yang menyangkut nama atau kata budi, maka hasilnya didapat ternodai(budi, darah).
+    
+    Selanjuntya program melakukan proses terakhir yaitu pada ternodai(Terbunuh, Zat).
+ Maka akan di dapat hasil ternodai(siti, darah). Dan kesimpulan dari pernyataan-pernyataan 
+ dan fakta-fakta yang telah ada, maka siti memiliki noda sama persis dengan budi. 
+ Berdasarkan kesamaan fakta-fakta tersebut, goal menampilkan bahwa budilah yang membunuh siti.
