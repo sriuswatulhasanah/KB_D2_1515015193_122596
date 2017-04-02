@@ -4,12 +4,12 @@ nama_mahasiswa,jenis_kelamin,nim = symbol %nama mahasiswa,jenis kelamin,nim deng
 nama_matkul,nama_dosen,program_studi,ruang = symbol %nama matkul,nama dosen,program studi,ruang dengan type symbol
 
 PREDICATES
-nondeterm mhs(nama_matkul,nama_mahasiswa,jenis_kelamin,nim,alamat_asal) % mahasiswa dengan argumen nama_matkul,nama_mahasiswa,jenis_kelamin,nim,alamat_asal dengan jawaban bisa lebih dari satu
+nondeterm mhs(nama_matkul,nama_mahasiswa,jenis_kelamin,nim,alamat_asal) % mahasiswa dengan argumen nama_matkul,nama_mahasiswa,jenis_kelamin,nim,alamat_asal dengan jawaban bisa lebih dari satunn
 nondeterm mahasiswa_yang_mengikuti_matakuliah_intelegensi_buatan /* Keywoard nondeterm pada section predicates yang mendahului predikat orang berfungsi untuk memberitahu ke 							       
 								 compiler Visual Prolog bahwa predikat tersebut mempunyai lebih dari satu kemungkinan jawaban*/ 
 cetak_mhs(nama_mahasiswa,nama_dosen,ruang,alamat_asal) %cetak mhs dgn argumen nama_mahasiswa,nama_dosen,ruang,alamat_asal
-matkul(nama_matkul,nama_dosen,program_studi,ruang) %matkul dgn argumen nama_matkul,nama_dosen,program_studi,ruang 
-matkul_yg_diajarkan_pd_smstr_tsb(nama_matkul,nama_mahasiswa,ruang,nama_dosen) %matkul yg di ajarkan pada semester tersebut dgn argumen nama_matkul,nama_mahasiswa,ruang,nama_dosen 
+nondeterm matkul(nama_matkul,nama_dosen,program_studi,ruang) %matkul dgn argumen nama_matkul,nama_dosen,program_studi,ruang 
+nondeterm matkul_yg_diajarkan_pd_smstr_tsb(nama_matkul,nama_mahasiswa,ruang,nama_dosen) %matkul yg di ajarkan pada semester tersebut dgn argumen nama_matkul,nama_mahasiswa,ruang,nama_dosen 
 
 CLAUSES
 mahasiswa_yang_mengikuti_matakuliah_intelegensi_buatan:- %mahasiswa_yang_mengikuti_matakuliah_intelegensi_buatan jika
@@ -21,17 +21,15 @@ mhs("Intelegensi Buatan",_,_,_,_), % mengeset mahasiswa dari nama matakuliah int
 matkul(_,_,_,"1"), % mengeset matakuliah dari nomor ruang 1 
 write("______________________________________________________________________________________________________"),nl, %menampilkannya di layar output,nextline(baris baru)
 cetak_mhs(nama_mahasiswa,nama_dosen,ruang,alamat(symbol,symbol,symbol)). %cetak mahasiswa dgn nama mhs,nama dosen,ruang,alamat yg terdiri dari nama jalan,kota,provinsi
-%fail. /*melacak balik jika ada panggilan yg gagal,untuk memaksa lacakbalik dlm rangka mencari alternatif solusi*/
 mahasiswa_yang_mengikuti_matakuliah_intelegensi_buatan:- %mahasiswa_yang_mengikuti_matakuliah_intelegensi_buatan jika
+fail,
 write("\n\n Tekan sembarang tombol..."),nl, %menampilkan kalimatnya di layar output,nextline(baris baru) 
 readchar(_).
-
 
 cetak_mhs(nama_mahasiswa,nama_dosen,ruang,alamat(symbol,symbol,symbol)):-
 write("2002001","\t\t ","Sugeng Riyadi","\t\t "," Abdul Kadir","\t ","1","\t ","Jl. Sudirman No. 2","Pontianak","Kalimantan Barat"),nl,
 write("2002002","\t\t ","Yulia Sugondo","\t\t "," Abdul Kadir","\t ","1","\t ","Jl. A. Yani No. 10","Klaten","Jawa Tengah"),nl,
 write("2002003","\t\t ","Budiman Sejati","\t\t "," Abdul Kadir","\t ","1","\t ","Jl. Slamet Riyadi No. 45","Solo","Jawa Tengah"),nl.
-
 
 matkul_yg_diajarkan_pd_smstr_tsb("Intelegensi Buatan","Sugeng Riyadi","1","Abdul Kadir").
 matkul_yg_diajarkan_pd_smstr_tsb("Intelegensi Buatan","Yulia Sugondo","1","Abdul Kadir").
@@ -64,4 +62,5 @@ matkul("Teknik Antar Muka","Sigit Anggoro","Teknik Komputer","3").
 
 
 GOAL
-mahasiswa_yang_mengikuti_matakuliah_intelegensi_buatan.
+mahasiswa_yang_mengikuti_matakuliah_intelegensi_buatan,nl,
+matkul_yg_diajarkan_pd_smstr_tsb(A,B,C,D).
